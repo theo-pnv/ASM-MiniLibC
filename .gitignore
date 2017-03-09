@@ -1,0 +1,4 @@
+bootstrap/
+*.o
+*.so
+a.out
