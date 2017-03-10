@@ -1,12 +1,18 @@
 section .text
 
 global display:function
+	extern printf
 
 display:
-	mov rdx, 6
-	mov rcx, str
-	mov rbx, 1
+	push rbp
+	mov rsp, rbp
 
-	mov rax, 4
-	int 0x80
+	mov rax, [rdi]
+	push rax
+	push dword "%s"
+	call printf
+
+	add rsp, 8
+	mov rbp, rsp
+	pop rbp
 	ret
