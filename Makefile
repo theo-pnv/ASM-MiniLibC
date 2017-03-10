@@ -5,23 +5,24 @@
 ## Login   <theo.penavaire@epitech.eu>
 ##
 ## Started on  Thu Mar  9 10:05:45 2017 Theo Penavaire
-## Last update Thu Mar  9 10:37:04 2017 Theo Penavaire
+## Last update Fri Mar 10 12:08:00 2017 Theo Penavaire
 ##
 
-NASM	=	nasm
+NASM	=	nasm -f elf64
+LD	=	ld -shared
 CC	=	gcc
-CFLAGS	=	-f elf64
 NAME	=	libasm.so
 
-SRCS	=	strlen.asm
+SRCS	=	strlen.asm		\
+		disp_string.asm
 
 OBJS	=	$(SRCS:.asm=.o)
 
 all	:	$(NAME)
 
 $(NAME)	:
-		nasm -f elf64 strlen.asm
-		$(CC) -shared $(OBJS) -o $(NAME)
+		@for i in $(SRCS); do $(NASM) $$i; done
+		$(LD) -o $(NAME) $(OBJS)
 
 clean	:
 		$(RM) $(OBJS)
