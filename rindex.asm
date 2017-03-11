@@ -1,11 +1,9 @@
 ;; ID RX
 
-global _rindex:function
-extern _strlen
-
+global rindex:function
 section .text
 
-_rindex:
+rindex:
 	push rbp
 	mov rbp, rsp
 	mov rdx, rdi	; rdx now points to the beginning of string

@@ -1,9 +1,9 @@
 ;; ID SL
 
 section .text
-global _strlen:function
+global strlen:function
 
-_strlen:
+strlen:
 	push rbp	; Save previous frame's base pointer
 	mov rbp, rsp	; Update base pointer to current top stack point (rsp)
 	xor rcx, rcx	; Init counter to 0

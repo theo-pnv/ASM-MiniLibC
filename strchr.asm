@@ -1,10 +1,10 @@
 ;; ID SC
 
-global _strchr:function
+global strchr:function
 
 section .text
 
-_strchr:
+strchr:
 	push rbp
 	mov rbp, rsp
 
