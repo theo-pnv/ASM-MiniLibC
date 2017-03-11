@@ -6,27 +6,21 @@ global _strchr:function
 _strchr:
 	push rbp
 	mov rbp, rsp
-	mov rax, [rsp + 16]	; rax = char *
-	mov rdx, [rsp + 24]	; rdx = int
-	xor rcx, rcx
+
+; rdi: pointer on passed string
+; [rdi]: current character of the string
+; sil: Source Index (Low) register containing the 2nd argument
 
 SC_loop:
-	cmp byte[rax + rcx], 0
-	jz SC_not_found
-	cmp [rax + rcx], rdx
-	je SC_found
-	inc rcx
+	cmp byte[rdi], 0
+	jz SC_end
+	cmp [rdi], sil
+	je SC_end
+	inc rdi
 	jmp SC_loop
 
-SC_found:
-	add rax, rcx
-	jmp SC_end
-
-SC_not_found:
-	mov rax, 0
-	jmp SC_end
-
 SC_end:
+	mov rax, rdi
 	mov rsp, rbp
 	pop rbp
 	ret

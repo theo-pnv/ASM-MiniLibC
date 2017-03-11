@@ -5,10 +5,12 @@ extern size_t	_strlen(const char *);
 extern void 	display();
 extern char	*_strchr(const char *, int c);
 
-int	main()
+int		main()
 {
-  const char *s = "Salut !\n";
+  const char	*s = "Salut !\n";
+  char		*ret;
 
-  // printf("%s\n", _strchr(s, 'a'));
+  ret = _strchr(s, 'r');
+  printf("%s", !ret ? "NULL" : ret);
   return (_strlen(s));
 }
