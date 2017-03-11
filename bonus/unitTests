@@ -44,7 +44,7 @@ for FUNC in $TESTD*/ ; do
 			echo -e "    $GREEN OK $DEFAULT"
 		fi
 		rm student system me def
-		cd ../../../
+		cd ../
 	done
 	echo -e
 	cd ../
