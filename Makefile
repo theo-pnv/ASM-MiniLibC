@@ -5,7 +5,7 @@
 ## Login   <theo.penavaire@epitech.eu>
 ##
 ## Started on  Thu Mar  9 10:05:45 2017 Theo Penavaire
-## Last update Sat Mar 11 19:59:02 2017 blonde_r
+## Last update Sat Mar 11 21:57:37 2017 Theo Penavaire
 ##
 
 NASM	=	nasm -f elf64
@@ -16,7 +16,8 @@ NAME	=	libasm.so
 SRCS	=	strlen.asm	\
 		strchr.asm	\
 		rindex.asm	\
-		strcmp.asm
+		strcmp.asm	\
+		memset.asm
 
 OBJS	=	$(SRCS:.asm=.o)
 
