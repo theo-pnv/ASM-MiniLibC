@@ -1,13 +1,14 @@
 ;; ID SC
 
-section .text
 global _strchr:function
+
+section .text
 
 _strchr:
 	push rbp
 	mov rbp, rsp
 
-; rdi: pointer on passed string
+; rdi: pointer to passed string
 ; [rdi]: current character of the string
 ; sil: Source Index (Low) register containing the 2nd argument
 
