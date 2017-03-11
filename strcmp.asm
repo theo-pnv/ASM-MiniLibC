@@ -1,7 +1,7 @@
 section	.text
-	global	_strcmp:function
+	global	strcmp:function
 
-_strcmp:
+strcmp:
 	push	rbp
 	mov	rbp, rsp
 
