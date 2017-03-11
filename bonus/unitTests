@@ -1,0 +1,53 @@
+#!/bin/sh
+
+BG_BLUE='\033[44m'
+BG_DEF='\033[40m'
+RED="\e[31m"
+GREEN="\e[32m"
+DEFAULT="\e[39m"
+
+TESTD=test/
+FILE_DIFF=diff.txt
+
+LD_LIBRARY_PATH=../
+make re -C ../
+echo -e
+
+for FUNC in $TESTD*/ ; do
+	cd $FUNC
+	DESC=`cat desc.txt`
+	echo -e "$BG_BLUE Unit Tests - $DESC $BG_DEF\n"
+	for UTEST in */ ; do
+
+		cd $UTEST
+		DESC=`cat desc.txt`
+		echo -e "  $DESC:"
+
+		gcc -o me me.c ../../../../libasm.so
+		gcc -o def def.c
+
+		./me > student 2>/dev/null
+		./def > system 2>/dev/null
+		DIFF=`diff student system`
+		if [ -n "$DIFF" ]
+		then
+			PWD=`pwd`
+			PWD=$PWD/$FILE_DIFF
+			if [ -e "$FILE_DIFF" ]
+			then
+				rm $FILE_DIFF
+			fi
+			echo -e "< : Yours\t> : System's" > $FILE_DIFF
+			echo "$DIFF" >> $FILE_DIFF
+			echo -e "    $RED KO $DEFAULT Diff stored in $PWD"
+		else
+			echo -e "    $GREEN OK $DEFAULT"
+		fi
+		rm student system me def
+		cd ../../../
+	done
+	echo -e
+	cd ../
+done
+
+#end
