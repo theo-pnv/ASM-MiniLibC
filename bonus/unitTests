@@ -10,8 +10,12 @@ TESTD=test/
 FILE_DIFF=diff.txt
 
 LD_LIBRARY_PATH=../
-make re -C ../
-echo -e
+if [ ! -e "../libasm.so" ]
+then
+	make re -C ../
+	make clean -C ../
+	echo -e
+fi
 
 for FUNC in $TESTD*/ ; do
 	cd $FUNC
