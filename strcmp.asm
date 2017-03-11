@@ -14,30 +14,23 @@ _loop:				;rdi = s1 - rsi = s2
 	mov	dl, [rsi]	;move char s2 in dl
 	cmp	al, dl		;compare chars
 	je	_equal		;if equal we go on
-	jg	_greater	;if greater - stop
-	jl	_lower		;if lower - stop
+	jne	_diff		;not equal = stop
 	
 _equal:				;continue loop
 	inc	rdi
 	inc	rsi
 	jmp	_loop
 
-_greater:
-	mov	rax, 1		;return value = diff chars
+_diff:
+	sub	al, dl		;diff s1[i] - s2[i]
+	movsx	rax, al		;move diff result in ret register
 	mov	rsp, rbp
 	pop	rbp
 	ret
 	
-_lower:
-	mov	rax, 2		;return value = diff chars
-	mov	rsp, rbp
-	pop	rbp
-	ret	
-
 _end:				;s1 or s2 is \0
 	cmp	al, dl		;compare last chars
-	jg	_greater
-	jl	_lower
+	jne	_diff
 	mov	rax, 0		;strings are equal = return 0
 	mov	rsp, rbp
 	pop	rbp
