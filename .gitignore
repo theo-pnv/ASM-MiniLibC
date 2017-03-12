@@ -2,3 +2,4 @@ bootstrap/
 *.o
 *.so
 a.out
+diff.txt
