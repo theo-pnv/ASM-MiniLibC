@@ -14,14 +14,21 @@ strchr:
 
 SC_loop:
 	cmp byte[rdi], 0
-	jz SC_end
+	jz SC_not_found
 	cmp [rdi], sil
-	je SC_end
+	je SC_found
 	inc rdi
 	jmp SC_loop
 
-SC_end:
+SC_not_found:
+	mov rax, 0
+	jmp SC_end
+
+SC_found:
 	mov rax, rdi
+	jmp SC_end
+
+SC_end:
 	mov rsp, rbp
 	pop rbp
 	ret
