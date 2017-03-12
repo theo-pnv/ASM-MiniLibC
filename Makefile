@@ -5,7 +5,7 @@
 ## Login   <theo.penavaire@epitech.eu>
 ##
 ## Started on  Thu Mar  9 10:05:45 2017 Theo Penavaire
-## Last update Sat Mar 11 21:57:37 2017 Theo Penavaire
+## Last update Sun Mar 12 20:58:38 2017 blonde_r
 ##
 
 NASM	=	nasm -f elf64
@@ -17,7 +17,8 @@ SRCS	=	strlen.asm	\
 		strchr.asm	\
 		rindex.asm	\
 		strcmp.asm	\
-		memset.asm
+		memset.asm	\
+		strncmp.asm	\
 
 OBJS	=	$(SRCS:.asm=.o)
 
