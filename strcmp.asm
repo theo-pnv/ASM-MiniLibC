@@ -1,5 +1,5 @@
 section	.text
-	global	_strcmp:function
+	global	strcmp:function
 
 	;; int	strcmp(const char *s1, const char *s2)
 	;; rdi	s1
@@ -8,7 +8,7 @@ section	.text
 	;; dl	s2[i]
 	;; return rax = s1[i] - s2[i]
 	
-_strcmp:
+strcmp:
 	push	rbp
 	mov	rbp, rsp
 
