@@ -10,8 +10,8 @@ extern int	_strcmp(const char *s1, const char *s2);
 
 int		main()
 {
-  const char	*s1 = "s";
-  const char	*s2 = "w";
+  const char	*s1 = "";
+  const char	*s2 = "";
 
   printf("le mien = %d\n", _strcmp(s1, s2));
   printf("systeme = %d\n", strcmp(s1, s2));
