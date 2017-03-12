@@ -19,8 +19,6 @@ memset:
 MS_loop:
 	cmp rcx, rdx
 	je end
-	cmp byte[rdi], 0
-	je end
 	mov [rdi], sil
 	inc rdi
 	inc rcx

@@ -1,0 +1,4 @@
+< : Yours	> : System's
+0a1,2
+> Before memset: Hello World !
+> After memset: aaaao Worlbb!

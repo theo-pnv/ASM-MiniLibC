@@ -6,7 +6,6 @@ RED="\e[31m"
 GREEN="\e[32m"
 DEFAULT="\e[39m"
 
-TESTD=test/
 FILE_DIFF=diff.txt
 
 LD_LIBRARY_PATH=../
@@ -17,7 +16,8 @@ then
 	echo -e
 fi
 
-for FUNC in $TESTD*/ ; do
+cd test/
+for FUNC in */ ; do
 	cd $FUNC
 	DESC=`cat desc.txt`
 	echo -e "$BG_BLUE Unit Tests - $DESC $BG_DEF\n"
@@ -30,8 +30,8 @@ for FUNC in $TESTD*/ ; do
 		gcc -o me me.c ../../../../libasm.so
 		gcc -o def def.c
 
-		./me > student 2>/dev/null
-		./def > system 2>/dev/null
+		{ ./me; } &>/dev/null > student	#Catch segfaults
+		{ ./def; } &>/dev/null > system
 		DIFF=`diff student system`
 		if [ -n "$DIFF" ]
 		then
@@ -48,6 +48,10 @@ for FUNC in $TESTD*/ ; do
 			echo -e "    $GREEN OK $DEFAULT"
 		fi
 		rm student system me def
+		if [ -e "log" ]
+		then
+			rm log
+		fi
 		cd ../
 	done
 	echo -e
