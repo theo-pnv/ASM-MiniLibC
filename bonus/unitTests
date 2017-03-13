@@ -8,11 +8,11 @@ DEFAULT="\e[39m"
 
 FILE_DIFF=diff.txt
 
-LD_LIBRARY_PATH=../
+LD_LIBRARY_PATH=./
 if [ ! -e "../libasm.so" ]
 then
-	make re -C ../
-	make clean -C ../
+	make re
+	make clean
 	echo -e
 fi
 
@@ -27,7 +27,7 @@ for FUNC in */ ; do
 		DESC=`cat desc.txt`
 		echo -e "  $DESC:"
 
-		gcc -o me me.c ../../../../libasm.so
+		gcc -o me me.c ../../../libasm.so
 		gcc -o def def.c
 
 		{ ./me; } &>/dev/null > student	#Catch segfaults
