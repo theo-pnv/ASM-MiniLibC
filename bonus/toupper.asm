@@ -1,20 +1,20 @@
 ; ID TU
 
-global toupper:function
+global _toupper:function
 
 ; int 	toupper(int c);
 ; rdi:	c
 
-toupper:
+_toupper:
 	push rbp
 	mov rbp, rsp
 	mov rax, rdi
 
 	cmp rdi, 'a'
-	jc TU_end
+	jl TU_end
 	cmp rdi, 'z'
-	jnc TU_end
-	dec rdi, 32
+	jg TU_end
+	sub rax, 32
 
 TU_end:
 	mov rsp, rbp
