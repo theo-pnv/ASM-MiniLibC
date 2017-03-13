@@ -2,11 +2,6 @@ section	.text
 	global	strcasecmp:function
 
 	;; int	strcasecmp(const char *s1, const char *s2)
-	;; rdi	s1
-	;; rsi	s2
-	;; al	s1[i]
-	;; dl	s2[i]
-	;; return rax = s1[i] - s2[i]
 	
 strcasecmp:
 	push	rbp

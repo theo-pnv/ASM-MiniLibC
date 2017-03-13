@@ -2,10 +2,6 @@ section	.text
 	global	strstr:function
 
 	;; char	*strstr(const char *haystack, const char *needle)
-	;; rdi	s1
-	;; rsi	s2
-	;; al	s1[i]
-	;; dl	s2[i]
 	
 strstr:
 	push	rbp

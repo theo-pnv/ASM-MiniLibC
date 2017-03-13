@@ -2,12 +2,6 @@ section	.text
 	global	strncmp:function
 
 	;; int	strncmp(const char *s1, const char *s2, size_t n)
-	;; rdi	s1
-	;; rsi	s2
-	;; rcx	n
-	;; al	s1[i]
-	;; dl	s2[i]
-	;; return rax = s1[i] - s2[i]
 	
 strncmp:
 	push	rbp
