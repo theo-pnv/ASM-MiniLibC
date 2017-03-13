@@ -19,6 +19,7 @@ SRCS	=	strlen.asm	\
 		strcmp.asm	\
 		memset.asm	\
 		memcpy.asm	\
+		memmove.asm	\
 		strncmp.asm	\
 		strcasecmp.asm	\
 		strstr.asm	\

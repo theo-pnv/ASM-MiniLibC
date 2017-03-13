@@ -7,18 +7,15 @@ extern char	*strchr(const char *, int c);
 extern char	*rindex(const char *, int c);
 extern void	*memset(void *, int, size_t);
 extern void	*memcpy(void *, const void *, size_t);
+extern void	*_memmove(void *, const void *, size_t);
 
 int		main()
 {
-  char		s1[5] = "Hello";
-  const char	s2[5] = "Allah";
+  char array[100] = "Geeks for geeks";
 
-  strlen(s2);
-  printf("Before using memset %s\n", s1);
-  memset(s1, 'a', 3);
-  printf("After using memset %s - %s\n", s1, s2);
-  memcpy(s1, s2, 2);
-  printf("After using memcpy %s - %s\n", s1, s2);
+  memcpy( (void*) &array[0], (void*) &array[1], 100 - 1 );
+
+  printf("After using mem* %s\n", array);
 
   return 0;
 }
