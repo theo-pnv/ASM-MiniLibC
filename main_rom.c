@@ -9,13 +9,14 @@ extern char	*_rindex(const char *, int c);
 extern int	strncmp(const char *s1, const char *s2, size_t n);
 extern int	_strcasecmp(const char *s1, const char *s2);
 extern char	*_strstr(const char *haystack, const char *needle);
+extern size_t	_strcspn(const char *s, const char *accept);
 
 int		main()
 {
-  const char	*s1 = "joujourOKljourjoal";
-  const char	*s2 = "jourOKl";
+  const char	*s1 = "abcdef";
+  const char	*s2 = "fed";
 
-  printf("le mien = %s\n", _strstr(s1, s2));
-  printf("systeme = %s\n", strstr(s1, s2));
+  printf("le mien = %zu\n", _strcspn(s1, s2));
+  printf("systeme = %zu\n", strcspn(s1, s2));
   return (0);
 }
