@@ -7,7 +7,7 @@ extern char	*strchr(const char *, int c);
 extern char	*rindex(const char *, int c);
 extern void	*memset(void *, int, size_t);
 extern void	*memcpy(void *, const void *, size_t);
-extern void	*_memmove(void *, const void *, size_t);
+extern void	*memmove(void *, const void *, size_t);
 
 int		main()
 {
