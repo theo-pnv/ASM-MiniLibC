@@ -1,6 +1,6 @@
 ; ID MM
 
-global _memmove:function
+global memmove:function
 
 section .text
 
@@ -9,7 +9,7 @@ section .text
 ; rsi:	src
 ; rdx:	n
 
-_memmove:
+memmove:
 	push rbp
 	mov rbp, rsp
 	xor rcx, rcx
