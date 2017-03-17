@@ -9,7 +9,7 @@ DEFAULT="\e[39m"
 FILE_DIFF=diff.txt
 
 LD_LIBRARY_PATH=./
-if [ ! -e "../libasm.so" ]
+if [ ! -e "libasm.so" ]
 then
 	make re
 	make clean

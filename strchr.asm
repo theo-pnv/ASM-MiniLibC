@@ -1,16 +1,16 @@
 ;; ID SC
 
-global strchr:function
+global _strchr:function
 
 section .text
 
-strchr:
+; char *strchr(const char *s, int c)
+; rdi: s
+; sil: c
+
+_strchr:
 	push rbp
 	mov rbp, rsp
-
-; rdi: pointer to passed string
-; [rdi]: current character of the string
-; sil: Source Index (Low) register containing the 2nd argument
 
 SC_loop:
 	cmp byte[rdi], 0
@@ -21,7 +21,7 @@ SC_loop:
 	jmp SC_loop
 
 SC_not_found:
-	mov rax, 0
+	mov rax, rdi
 	jmp SC_end
 
 SC_found:
