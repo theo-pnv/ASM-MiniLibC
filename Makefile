@@ -5,11 +5,11 @@
 ## Login   <theo.penavaire@epitech.eu>
 ##
 ## Started on  Thu Mar  9 10:05:45 2017 Theo Penavaire
-## Last update Mon Mar 13 14:41:05 2017 blonde_r
+## Last update Tue Mar 21 17:30:54 2017 Theo Penavaire
 ##
 
 NASM	=	nasm -f elf64
-LD	=	ld -shared -g
+LD	=	ld -shared
 CC	=	gcc
 NAME	=	libasm.so
 
