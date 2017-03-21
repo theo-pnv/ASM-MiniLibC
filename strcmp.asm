@@ -7,26 +7,18 @@ strcmp:
 	mov	rbp, rsp
 
 _loop:
-	cmp	byte[rdi], 0
-	jz	_end
-	cmp	byte[rsi], 0
-	jz	_end
 	mov	al, [rdi]
 	mov	dl, [rsi]
+	cmp	byte[rdi], 0
+	jz	_diff
+	cmp	byte[rsi], 0
+	jz	_diff
 	cmp	al, dl
-	je	_equal
 	jne	_diff
-	
-_equal:
 	inc	rdi
 	inc	rsi
 	jmp	_loop
-
-_end:
-	mov	al, [rdi]
-	mov	dl, [rsi]
-	jmp	_diff
-
+	
 _diff:
 	sub	al, dl
 	movsx	rax, al
