@@ -6,32 +6,28 @@ section	.text
 strncmp:
 	push	rbp
 	mov	rbp, rsp
+	xor	rcx, rcx
+	inc	rcx
 	
 _loop:
-	cmp	byte[rdi], 0
-	jz	_end
-	cmp	byte[rsi], 0
-	jz	_end
 	mov	al, [rdi]
-	mov	dl, [rsi]
-	cmp	rcx, 0
-	jl	_diff
-	cmp	al, dl
-	je	_equal
+	mov	r8b, [rsi]
+	cmp	rcx, rdx
+	je	_diff
+	cmp	byte[rdi], 0
+	jz	_diff
+	cmp	byte[rsi], 0
+	jz	_diff
+	cmp	al, r8b
 	jne	_diff
-	
-_equal:
 	inc	rdi
 	inc	rsi
+	inc	rcx
+	je	_diff
 	jmp	_loop
 
-_end:
-	mov	al, [rdi]
-	mov	dl, [rsi]
-	jmp	_diff
-
 _diff:
-	sub	al, dl
+	sub	al, r8b
 	movsx	rax, al
 	mov	rsp, rbp
 	pop	rbp
