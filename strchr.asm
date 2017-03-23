@@ -21,7 +21,13 @@ SC_loop:
 	jmp SC_loop
 
 SC_not_found:
+	cmp sil, 0
+	jne SC_not_0
 	mov rax, rdi
+	jmp SC_end
+
+SC_not_0:
+	mov rax, 0
 	jmp SC_end
 
 SC_found:
