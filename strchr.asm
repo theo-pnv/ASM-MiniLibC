@@ -1,6 +1,6 @@
 ;; ID SC
 
-global _strchr:function
+global strchr:function
 
 section .text
 
@@ -8,7 +8,7 @@ section .text
 ; rdi: s
 ; sil: c
 
-_strchr:
+strchr:
 	push rbp
 	mov rbp, rsp
 
