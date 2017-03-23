@@ -1,7 +1,0 @@
-memmove qui crash quand ca se chevauche
-
-strncmp
-
-registres à restaurer sinon segfault (rindex) :
-	  rbx, rdx - r10+
-reduire les jump
