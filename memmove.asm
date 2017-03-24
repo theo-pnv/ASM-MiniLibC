@@ -15,19 +15,15 @@ memmove:
 	xor rcx, rcx
 	mov rax, rdi
 	cmp rsi, rdi
-	jnc MM_copy_beg
-
-MM_calc_len:
-	cmp byte[rdi + rcx], 0
-	jz MM_copy_end
-	inc rcx
-	jmp MM_calc_len
+	jnb MM_copy_beg
+	add rcx, rdx	;; Place r8 at src + n
+	dec rcx
 
 MM_copy_end:
-	cmp byte[rcx], 0
-	jz MM_end
 	mov bl, [rsi + rcx]
 	mov [rdi + rcx], bl
+	cmp rcx, 0
+	jz MM_end
 	dec rcx
 	jmp MM_copy_end
 
