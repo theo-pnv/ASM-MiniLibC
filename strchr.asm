@@ -14,7 +14,7 @@ strchr:
 
 SC_loop:
 	cmp byte[rdi], 0
-	jz SC_not_found
+	je SC_not_found
 	cmp [rdi], sil
 	je SC_found
 	inc rdi
