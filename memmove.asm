@@ -12,8 +12,11 @@ section .text
 memmove:
 	push rbp
 	mov rbp, rsp
+
 	xor rcx, rcx
 	mov rax, rdi
+	cmp rdx, 0
+	je MM_end
 	cmp rsi, rdi
 	jnb MM_copy_beg
 	add rcx, rdx	;; Place r8 at src + n
